@@ -26,6 +26,7 @@ public class CadastroActivity extends AppCompatActivity {
     private TextInputEditText addressEstado;
     private EditText born;
     private ImageButton buttonSave;
+    Cliente cliente;
 
 
     @Override
@@ -52,11 +53,21 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Log.i( "teste", inputFullName.getEditText().getText().toString() );
-                Log.i( "teste", inputCpf.getEditText().getText().toString());
+
+                criaCliente();
+
 
             }
         } );
+
+    }
+
+    private void criaCliente() {
+        cliente = new Cliente();
+        cliente.setNomeCompleto( inputFullName.getEditText().getText().toString() );
+        cliente.setCpf( inputCpf.getEditText().getText().toString() );
+
+
 
 
     }
