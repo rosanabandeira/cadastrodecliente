@@ -56,7 +56,6 @@ public class CadastroActivity extends AppCompatActivity {
 
                 criaCliente();
 
-
             }
         } );
 
@@ -66,9 +65,19 @@ public class CadastroActivity extends AppCompatActivity {
         cliente = new Cliente();
         cliente.setNomeCompleto( inputFullName.getEditText().getText().toString() );
         cliente.setCpf( inputCpf.getEditText().getText().toString() );
+        cliente.setDataDeNascimento( born.getText().toString() );
 
+        Endereco endereco = new Endereco();
+        endereco.setCep( addressCep.getEditableText().getFilters().toString() );
+        endereco.setRua( addressStreet.getEditableText().toString() );
+        endereco.setNumero( addressNumber.getEditableText().toString() );
+        endereco.setComplemento( addressComplement.getEditableText().toString() );
+        endereco.setBairro( addressNeighbor.getEditableText().toString() );
+        endereco.setCidade( addressCity.getEditableText().toString() );
+        endereco.setUf( addressUf.getEditableText().toString() );
+        endereco.setEstado( addressEstado.getEditableText().toString() );
 
-
+        cliente.setEndereco( endereco );
 
     }
 }
