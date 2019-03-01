@@ -1,26 +1,40 @@
-import javax.annotation.Generated;
-import com.google.gson.annotations.Expose;
 
-@Generated("net.hexar.json2pojo")
-@SuppressWarnings("unused")
+package c.digitalhouse.cadastrocliente.model;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
+
 public class Cep {
 
+    @SerializedName("cep")
+
+    private List<Cep> newListCep;
+
+    @SerializedName("bairro")
     @Expose
     private String bairro;
     @Expose
     private String cep;
+    @SerializedName( "complemento" )
     @Expose
     private String complemento;
     @Expose
     private String gia;
     @Expose
     private String ibge;
+    @SerializedName( "localidade" )
     @Expose
     private String localidade;
+    @SerializedName( "logradouro" )
     @Expose
     private String logradouro;
+    @SerializedName( "uf" )
     @Expose
     private String uf;
+    @SerializedName( "unidade" )
     @Expose
     private String unidade;
 
@@ -120,7 +134,6 @@ public class Cep {
         public Cep build() {
             Cep cep = new Cep();
             cep.bairro = bairro;
-            cep.cep = cep;
             cep.complemento = complemento;
             cep.gia = gia;
             cep.ibge = ibge;

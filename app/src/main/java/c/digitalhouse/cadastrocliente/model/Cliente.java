@@ -1,7 +1,5 @@
-package c.digitalhouse.cadastrocliente;
+package c.digitalhouse.cadastrocliente.model;
 
-
-import android.widget.Button;
 
 public class Cliente {
 

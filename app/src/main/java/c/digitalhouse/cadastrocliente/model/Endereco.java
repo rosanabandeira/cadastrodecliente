@@ -1,4 +1,5 @@
-package c.digitalhouse.cadastrocliente;
+package c.digitalhouse.cadastrocliente.model;
+
 
 public class Endereco {
 
