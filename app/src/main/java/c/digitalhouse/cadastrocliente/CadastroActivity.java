@@ -93,7 +93,9 @@ public class CadastroActivity extends AppCompatActivity {
     public void search(View view) {
 
         APIService retrofit = RetrofitService.getAPIService();
-        Observable<Endereco> observable = retrofit.getRemoteEndereco( "CEP" );
+
+        final Observable<Endereco> observable = retrofit.getRemoteEndereco( "CEP" );
+
         Log.i( "nome" + addressNeighbor.getEditableText().toString(), "entrou: " );
     }
 }
