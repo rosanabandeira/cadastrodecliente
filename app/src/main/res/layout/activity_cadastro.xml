@@ -111,7 +111,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="3"
             app:srcCompat="@drawable/ic_search_black_24dp"
-            tools:ignore="VectorDrawableCompat" />
+            tools:ignore="VectorDrawableCompat"
+            android:onClick="search"/>
 
     </LinearLayout>
 

@@ -4,12 +4,18 @@ import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
 
 import c.digitalhouse.cadastrocliente.model.Cliente;
 import c.digitalhouse.cadastrocliente.model.Endereco;
+import c.digitalhouse.cadastrocliente.remote.APIService;
+import c.digitalhouse.cadastrocliente.remote.RetrofitService;
+import io.reactivex.Observable;
 
 
 public class CadastroActivity extends AppCompatActivity {
@@ -80,5 +86,14 @@ public class CadastroActivity extends AppCompatActivity {
 
         cliente.setEndereco( endereco );
 
+
+    }
+
+
+    public void search(View view) {
+
+        APIService retrofit = RetrofitService.getAPIService();
+        Observable<Endereco> observable = retrofit.getRemoteEndereco( "CEP" );
+        Log.i( "nome" + addressNeighbor.getEditableText().toString(), "entrou: " );
     }
 }

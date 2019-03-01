@@ -10,6 +10,7 @@ public class Cliente {
 
 
     public Cliente() {
+        endereco = new Endereco();
     }
 
     public String getNomeCompleto() {
