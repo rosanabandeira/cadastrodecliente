@@ -8,14 +8,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
+
+import com.google.gson.GsonBuilder;
 
 import c.digitalhouse.cadastrocliente.model.Cliente;
 import c.digitalhouse.cadastrocliente.model.Endereco;
+import c.digitalhouse.cadastrocliente.model.EnderecoResponse;
 import c.digitalhouse.cadastrocliente.remote.APIService;
 import c.digitalhouse.cadastrocliente.remote.RetrofitService;
-import io.reactivex.Observable;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class CadastroActivity extends AppCompatActivity {
@@ -75,6 +81,7 @@ public class CadastroActivity extends AppCompatActivity {
         cliente.setDataDeNascimento( born.getText().toString() );
 
         Endereco endereco = new Endereco();
+
         endereco.setCep( addressCep.getEditableText().getFilters().toString() );
         endereco.setRua( addressStreet.getEditableText().toString() );
         endereco.setNumero( addressNumber.getEditableText().toString() );
@@ -90,12 +97,33 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
 
-    public void search(View view) {
+    public void searchCep(View view) {
 
-        APIService retrofit = RetrofitService.getAPIService();
+        final APIService retrofit = RetrofitService.getApiService();
 
-        final Observable<Endereco> observable = retrofit.getRemoteEndereco( "CEP" );
+        retrofit.getRemoteEndereco().enqueue( new Callback<Endereco>() {
 
-        Log.i( "nome" + addressNeighbor.getEditableText().toString(), "entrou: " );
+
+            @Override
+            public void onResponse(Call<Endereco> call, Response<Endereco> enderecoResponse) {
+
+
+
+                final int teste = Log.i( "teste", cliente.getEndereco().getCep().toString();
+
+
+            }
+
+            @Override
+            public void onFailure(Call<Endereco> call, Throwable t) {
+                Log.e( "retrofit", "falhou" );
+
+            }
+        } );
+
+    }
+
+    public void onNext (EnderecoResponse enderecoResponse){
+
     }
 }
