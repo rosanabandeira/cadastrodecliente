@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 import com.google.gson.GsonBuilder;
@@ -107,11 +108,7 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Endereco> call, Response<Endereco> enderecoResponse) {
 
-
-
-                final int teste = Log.i( "teste", cliente.getEndereco().getCep().toString();
-
-
+                enderecoResponse.body();
             }
 
             @Override
@@ -123,7 +120,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-    public void onNext (EnderecoResponse enderecoResponse){
+    public void onNext(EnderecoResponse enderecoResponse) {
 
     }
 }

@@ -12,6 +12,18 @@ public class Endereco {
     private String uf;
     private String estado;
 
+
+    public Endereco() {
+        this.cep = cep;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.uf = uf;
+        this.estado = estado;
+    }
+
     public String getCep() {
         return cep;
     }
@@ -78,3 +90,4 @@ public class Endereco {
 
 
 }
+

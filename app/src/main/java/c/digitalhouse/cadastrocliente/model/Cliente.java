@@ -1,8 +1,6 @@
 package c.digitalhouse.cadastrocliente.model;
 
 
-import android.text.Editable;
-
 public class Cliente {
 
     private String nomeCompleto;
@@ -15,14 +13,7 @@ public class Cliente {
 
         endereco = new Endereco();
 
-        endereco.setCep( endereco.getCep() );
-        endereco.setRua( endereco.getRua() );
-        endereco.setNumero( endereco.getNumero() );
-        endereco.setBairro( endereco.getBairro() );
-        endereco.setCidade( endereco.getCidade() );
-        endereco.setComplemento( endereco.getComplemento() );
-        endereco.setEstado( endereco.getEstado() );
-        endereco.setUf( endereco.getUf() );
+
     }
 
     public String getNomeCompleto() {
@@ -55,9 +46,16 @@ public class Cliente {
     }
 
     public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
 
+        endereco.setCep( endereco.getCep() );
+        endereco.setRua( endereco.getRua() );
+        endereco.setNumero( endereco.getNumero() );
+        endereco.setBairro( endereco.getBairro() );
+        endereco.setCidade( endereco.getCidade() );
+        endereco.setComplemento( endereco.getComplemento() );
+        endereco.setEstado( endereco.getEstado() );
+        endereco.setUf( endereco.getUf() );
+    }
 
 }
 
