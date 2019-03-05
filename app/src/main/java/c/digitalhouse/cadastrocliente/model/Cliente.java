@@ -3,6 +3,7 @@ package c.digitalhouse.cadastrocliente.model;
 
 public class Cliente {
 
+    private int id;
     private String nomeCompleto;
     private String dataDeNascimento;
     private String cpf;
@@ -13,7 +14,23 @@ public class Cliente {
 
         endereco = new Endereco();
 
+    }
 
+    public Cliente(int id, String nomeCompleto, String dataDeNascimento, String cpf, Endereco endereco) {
+        this.id = id;
+        this.nomeCompleto = nomeCompleto;
+        this.dataDeNascimento = dataDeNascimento;
+        this.cpf = cpf;
+        this.endereco = endereco;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNomeCompleto() {
@@ -40,21 +57,22 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-
     public Endereco getEndereco() {
         return endereco;
     }
 
     public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 
-        endereco.setCep( endereco.getCep() );
-        endereco.setRua( endereco.getRua() );
-        endereco.setNumero( endereco.getNumero() );
-        endereco.setBairro( endereco.getBairro() );
-        endereco.setCidade( endereco.getCidade() );
-        endereco.setComplemento( endereco.getComplemento() );
-        endereco.setEstado( endereco.getEstado() );
-        endereco.setUf( endereco.getUf() );
+    @Override
+    public boolean equals(Object o) {
+        return this.id == ((Cliente) o).id;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.id;
     }
 
 }

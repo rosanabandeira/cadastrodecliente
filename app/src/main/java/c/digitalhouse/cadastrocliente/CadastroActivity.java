@@ -49,7 +49,7 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView( R.layout.activity_cadastro );
 
         inputFullName = findViewById( R.id.inputFullName );
-        buttonSave = findViewById( R.id.buttonSave );
+        buttonSave = findViewById( R.id.btnSalvar );
         inputCpf = findViewById( R.id.inputCpf );
         addressCep = findViewById( R.id.addressCep );
         addressSearch = findViewById( R.id.addressSearch );
@@ -108,7 +108,7 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Endereco> call, Response<Endereco> enderecoResponse) {
 
-                enderecoResponse.body();
+
             }
 
             @Override
@@ -120,7 +120,4 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-    public void onNext(EnderecoResponse enderecoResponse) {
-
-    }
 }

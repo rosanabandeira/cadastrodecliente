@@ -7,13 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton btnIncluir;
-
+    private Button btnCancelar;
+    private ImageButton btnSalvar;
 
 
     @Override
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView( R.layout.activity_cadastro );
 
         btnIncluir = findViewById( R.id.floatingActionButton );
+        btnCancelar = findViewById( R.id.btnCancelar );
+        btnSalvar = findViewById( R.id.btnSalvar );
 
         btnIncluir.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -30,7 +34,5 @@ public class MainActivity extends AppCompatActivity {
             }
         } );
     }
-
-
 
 }

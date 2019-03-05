@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">CadastroCliente</string>
     <string name="title_activity_lista_cliente">ListaClienteActivity</string>
+
+
+    <string-array name="estados">
+        <item>RS</item>
+        <item>SC</item>
+        <item>PR</item>
+    </string-array>
+
 </resources>
