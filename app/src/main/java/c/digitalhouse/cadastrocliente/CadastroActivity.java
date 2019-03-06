@@ -102,18 +102,24 @@ public class CadastroActivity extends AppCompatActivity {
 
         final APIService retrofit = RetrofitService.getApiService();
 
-        retrofit.getRemoteEndereco().enqueue( new Callback<Endereco>() {
+        retrofit.getRemoteEndereco( addressCep.getEditableText().toString() ).enqueue( new Callback<EnderecoResponse>() {
 
 
             @Override
-            public void onResponse(Call<Endereco> call, Response<Endereco> enderecoResponse) {
+            public void onResponse(Call<EnderecoResponse> call, Response<EnderecoResponse> enderecoResponse) {
 
+                addressStreet.setText( enderecoResponse.body().getLogradouro() );
+                addressNeighbor.setText( enderecoResponse.body().getBairro() );
+                addressCity.setText( enderecoResponse.body().getLocalidade());
+                addressEstado.setText( enderecoResponse.body().getUnidade() );
+                addressUf.setText( enderecoResponse.body().getUf() );
 
             }
 
+
             @Override
-            public void onFailure(Call<Endereco> call, Throwable t) {
-                Log.e( "retrofit", "falhou" );
+            public void onFailure(Call<EnderecoResponse> call, Throwable t) {
+                Log.e( "retrofit", "falhou " + t.getMessage() );
 
             }
         } );
