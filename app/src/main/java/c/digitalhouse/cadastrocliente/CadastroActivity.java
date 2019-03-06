@@ -2,27 +2,25 @@ package c.digitalhouse.cadastrocliente;
 
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
-
-import com.google.gson.GsonBuilder;
 
 import c.digitalhouse.cadastrocliente.model.Cliente;
 import c.digitalhouse.cadastrocliente.model.Endereco;
 import c.digitalhouse.cadastrocliente.model.EnderecoResponse;
 import c.digitalhouse.cadastrocliente.remote.APIService;
 import c.digitalhouse.cadastrocliente.remote.RetrofitService;
+import c.digitalhouse.cadastrocliente.validarCpf.ValidaCpf;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class CadastroActivity extends AppCompatActivity {
@@ -67,7 +65,8 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+               // validaNome();
+                validaCpf();
                 criaCliente();
 
             }
@@ -110,7 +109,7 @@ public class CadastroActivity extends AppCompatActivity {
 
                 addressStreet.setText( enderecoResponse.body().getLogradouro() );
                 addressNeighbor.setText( enderecoResponse.body().getBairro() );
-                addressCity.setText( enderecoResponse.body().getLocalidade());
+                addressCity.setText( enderecoResponse.body().getLocalidade() );
                 addressEstado.setText( enderecoResponse.body().getUnidade() );
                 addressUf.setText( enderecoResponse.body().getUf() );
 
@@ -123,7 +122,24 @@ public class CadastroActivity extends AppCompatActivity {
 
             }
         } );
-
     }
 
+    public void validaNome() {
+
+        if (inputFullName.getEditText().length() < 10) {
+            inputFullName.setError( "Minimo 10 letras" );
+        } else {
+            inputFullName.setError( "" );
+        }
+    }
+
+    public void validaCpf() {
+
+
+        if (ValidaCpf.isCPF(inputCpf.getEditText().getText().toString()) == true) {
+            inputCpf.setError( "" );
+        } else {
+            inputCpf.setError( "CPF inválido" );
+        }
+    }
 }
