@@ -65,7 +65,7 @@ public class CadastroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               // validaNome();
+                validaNome();
                 validaCpf();
                 criaCliente();
 
@@ -136,7 +136,7 @@ public class CadastroActivity extends AppCompatActivity {
     public void validaCpf() {
 
 
-        if (ValidaCpf.isCPF(inputCpf.getEditText().getText().toString()) == true) {
+        if (ValidaCpf.isCPF( inputCpf.getEditText().getText().toString() ) == true) {
             inputCpf.setError( "" );
         } else {
             inputCpf.setError( "CPF inválido" );
