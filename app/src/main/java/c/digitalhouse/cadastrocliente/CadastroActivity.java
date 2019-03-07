@@ -12,6 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import c.digitalhouse.cadastrocliente.model.Cliente;
 import c.digitalhouse.cadastrocliente.model.Endereco;
 import c.digitalhouse.cadastrocliente.model.EnderecoResponse;
@@ -68,6 +72,7 @@ public class CadastroActivity extends AppCompatActivity {
                 validaNome();
                 validaCpf();
                 criaCliente();
+                validaBorn();
 
             }
         } );
@@ -140,6 +145,24 @@ public class CadastroActivity extends AppCompatActivity {
             inputCpf.setError( "" );
         } else {
             inputCpf.setError( "CPF inválido" );
+        }
+    }
+
+    public void validaBorn() {
+
+        String pattern = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat( pattern );
+
+        sdf.setLenient( false );
+
+        String data = born.getText().toString();
+
+        try {
+            Date date = sdf.parse( data );
+            // Data formatada corretamente
+        } catch (ParseException e) {
+            // Erro de parsing!!
+            e.printStackTrace();
         }
     }
 }
