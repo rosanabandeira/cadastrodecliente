@@ -1,4 +1,4 @@
-package c.digitalhouse.cadastrocliente;
+package c.digitalhouse.cadastrocliente.testes;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
